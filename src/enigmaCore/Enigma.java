@@ -50,12 +50,12 @@ public class Enigma {
 	}
 	
 	//sets a specific rotor to a rotor position;
-	public void setRotors (int position, int rotor)
+	public void setRotors (int location, int rotor)
 	{
 		if(rotor != rotors[0].getRotorNumber() && rotor != rotors[1].getRotorNumber() && rotor != rotors[2].getRotorNumber())
 		{
-			rotors[position] = null;
-			rotors[position] = new Rotor(rotor);
+			rotors[location] = null;
+			rotors[location] = new Rotor(rotor);
 		}
 		else
 		{
