@@ -7,8 +7,12 @@
 package enigmaCore;
 
 public class Rotor {
+	//Which rotor is used
 	int rotorNumber;
+	//The order of letters stored on the rotor
 	int[] rotorValues = new int[26];
+	//The current index the rotor is set at *Default is at 0*
+	int rotorPosition = 0;
 	
 	//Default Constructor
 	public Rotor() {}
@@ -17,6 +21,13 @@ public class Rotor {
 	{
 		setRotorNumber(rotorNumber);
 		assignRotorValues(rotorNumber);
+	}
+	//Creates one of 5 rotors a specific position
+	public Rotor(int rotorNumber, int rotorPosition)
+	{
+		setRotorNumber(rotorNumber);
+		assignRotorValues(rotorNumber);
+		this.rotorPosition = rotorPosition;
 	}
 	
 	/*
@@ -72,7 +83,6 @@ public class Rotor {
 			break;
 		}
 	}
-	
 	public void setRotorNumber(int rotorNumber)
 	{
 		if (rotorNumber > 0 && rotorNumber < 6)
@@ -85,15 +95,23 @@ public class Rotor {
 			java.lang.System.out.print("ERROR!\nCan only select Rotors 1-5\n\n");
 		}
 	}
+	public void setRotorPosition(int rotorPosition)
+	{
+		this.rotorPosition = rotorPosition;
+	}
+	
 	
 	public int[] getRotorValues()
 	{		
 		return rotorValues;
 	}
-	
 	public int getRotorNumber()
 	{
 		return rotorNumber;
+	}
+	public int getRotorPosition()
+	{
+		return rotorPosition;
 	}
 	
 
