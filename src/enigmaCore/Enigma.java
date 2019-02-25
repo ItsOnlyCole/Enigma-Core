@@ -22,29 +22,26 @@ import static java.lang.System.out;
 
 public class Enigma {
 	//Used to store which rotors are picked for the 3 rotors used.
-	int[] rotors = new int[3];
-	int[] rotorOneValues = new int[26];
-	int[] rotorTwoValues = new int [26];
-	int[] rotorThreeValues = new int[26];
+	Rotor[] rotors = new Rotor[3];
 	
-	public Enigma()
-	{
-		//Default Constructor for the Enigma.
-	}
+	//Default Constructor for Enigma
+	public Enigma() {}
 	
+	//Constructor for Enigma with Rotor Postions
 	public Enigma(int rotorOne, int rotorTwo, int rotorThree)
 	{
 		setRotors(rotorOne, rotorTwo, rotorThree);
 	}
+	
 	
 	//sets all three rotors at once
 	public void setRotors (int rotorOne, int rotorTwo, int rotorThree)
 	{	
 		if(rotorOne != rotorTwo && rotorOne != rotorThree && rotorTwo != rotorThree)
 		{
-			rotors[0] = rotorOne;
-			rotors[1] = rotorTwo;
-			rotors[2] = rotorThree;
+			rotors[0] = new Rotor(rotorOne);
+			rotors[1] = new Rotor(rotorTwo);
+			rotors[2] = new Rotor(rotorThree);
 		}
 		else
 		{
@@ -52,12 +49,13 @@ public class Enigma {
 		}
 	}
 	
-	//sets a specific rotor postion to a rotor;
+	//sets a specific rotor to a rotor position;
 	public void setRotors (int position, int rotor)
 	{
-		if(rotor != rotors[0] && rotor != rotors [1] && rotor != rotors[2])
+		if(rotor != rotors[0].getRotorNumber() && rotor != rotors[1].getRotorNumber() && rotor != rotors[2].getRotorNumber())
 		{
-			rotors[position] = rotor;
+			rotors[position] = null;
+			rotors[position] = new Rotor(rotor);
 		}
 		else
 		{

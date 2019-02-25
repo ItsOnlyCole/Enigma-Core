@@ -1,6 +1,8 @@
-package enigmaCore;
+package enigmaCore.Tests;
 
 import static java.lang.System.out;
+
+import enigmaCore.Rotor;
 
 public class rotorTest {
 

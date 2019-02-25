@@ -8,11 +8,15 @@ package enigmaCore;
 
 public class Rotor {
 	int rotorNumber;
+	int[] rotorValues = new int[26];
 	
+	//Default Constructor
+	public Rotor() {}
 	//Creates one of 5 rotors
 	public Rotor(int rotorNumber)
 	{
-		this.rotorNumber = rotorNumber;
+		setRotorNumber(rotorNumber);
+		assignRotorValues(rotorNumber);
 	}
 	
 	/*
@@ -23,10 +27,8 @@ public class Rotor {
 	 * The value of each position in the array is the second value.
 	 * This is done this way to simplify the process of converting one letter to another instead of using a multidimensional array
 	 */
-	int[] getRotorValues()
+	public void assignRotorValues(int rotorNumber)
 	{
-		int[] rotorValues = new int[26];
-		
 		switch (rotorNumber)
 		{
 		case 1:
@@ -69,7 +71,30 @@ public class Rotor {
 			}
 			break;
 		}
-		
+	}
+	
+	
+	public int[] getRotorValues()
+	{		
 		return rotorValues;
 	}
+	
+	public int getRotorNumber()
+	{
+		return rotorNumber;
+	}
+	
+	public void setRotorNumber(int rotorNumber)
+	{
+		if (rotorNumber > 0 && rotorNumber < 6)
+		{
+			this.rotorNumber = rotorNumber;
+			assignRotorValues(rotorNumber);
+		}
+		else
+		{
+			java.lang.System.out.print("ERROR!\nCan only select Rotors 1-5\n\n");
+		}
+	}
+	
 }
