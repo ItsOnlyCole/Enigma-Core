@@ -14,7 +14,7 @@ public class Enigma_RotorPositionTest {
 		out.print("original Rotor locations: ");
 		for(int i = 0; i < 3; i++)
 		{
-			rotors[i] = myEnigma.getRotors()[i];
+			rotors[i] = myEnigma.getRotorNumber(i);
 			out.print(rotors[i] +" ");
 		}
 		
@@ -22,7 +22,7 @@ public class Enigma_RotorPositionTest {
 		out.print("\n\nnew Rotor Locations(All Different): ");
 		for(int i = 0; i < 3; i++)
 		{
-			rotors[i] = myEnigma.getRotors()[i];
+			rotors[i] = myEnigma.getRotorNumber(i);
 			out.print(rotors[i] +" ");
 		}
 		
@@ -30,7 +30,7 @@ public class Enigma_RotorPositionTest {
 		out.print("\n\nnew Rotor Locations(One Different): ");
 		for(int i = 0; i < 3; i++)
 		{
-			rotors[i] = myEnigma.getRotors()[i];
+			rotors[i] = myEnigma.getRotorNumber(i);
 			out.print(rotors[i] +" ");
 		}
 	}

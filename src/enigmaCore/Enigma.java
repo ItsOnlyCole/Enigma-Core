@@ -48,7 +48,6 @@ public class Enigma {
 			out.print("Error!\nA Rotor can't be used twice");
 		}
 	}
-	
 	//sets a specific rotor to a rotor position;
 	public void setRotors (int location, int rotor)
 	{
@@ -61,5 +60,14 @@ public class Enigma {
 		{
 			out.print("Error!\nA Rotor can't be used twice");
 		}
+	}
+	
+	public int getRotorNumber (int location)
+	{
+		return rotors[location].getRotorNumber();
+	}
+	public int[] getRotorValues (int location)
+	{
+		return rotors[location].getRotorValues();
 	}
 }

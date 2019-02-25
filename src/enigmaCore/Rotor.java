@@ -73,17 +73,6 @@ public class Rotor {
 		}
 	}
 	
-	
-	public int[] getRotorValues()
-	{		
-		return rotorValues;
-	}
-	
-	public int getRotorNumber()
-	{
-		return rotorNumber;
-	}
-	
 	public void setRotorNumber(int rotorNumber)
 	{
 		if (rotorNumber > 0 && rotorNumber < 6)
@@ -96,5 +85,18 @@ public class Rotor {
 			java.lang.System.out.print("ERROR!\nCan only select Rotors 1-5\n\n");
 		}
 	}
+	
+	public int[] getRotorValues()
+	{		
+		return rotorValues;
+	}
+	
+	public int getRotorNumber()
+	{
+		return rotorNumber;
+	}
+	
+
+
 	
 }
