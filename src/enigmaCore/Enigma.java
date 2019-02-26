@@ -28,27 +28,27 @@ public class Enigma {
 	public Enigma() {}
 	
 	//Constructor for Enigma with Rotor Postions
-	public Enigma(int rotorOne, int rotorTwo, int rotorThree)
+	public Enigma(int[] rotors)
 	{
-		setRotors(rotorOne, rotorTwo, rotorThree);
+		setRotors(rotors[0], rotors[1], rotors[2]);
 	}
 	
 	
 	//sets all three rotors at once
-	public void setRotors (int rotorOne, int rotorTwo, int rotorThree)
+	public void setRotors (int[] rotors)
 	{	
-		if(rotorOne != rotorTwo && rotorOne != rotorThree && rotorTwo != rotorThree)
+		if(rotors[0] != rotors[1] && rotors[0] != rotors[2] && rotors[1] != rotors[2])
 		{
-			rotors[0] = new Rotor(rotorOne);
-			rotors[1] = new Rotor(rotorTwo);
-			rotors[2] = new Rotor(rotorThree);
+			this.rotors[0] = new Rotor(rotors[0]);
+			this.rotors[1] = new Rotor(rotors[1]);
+			this.rotors[2] = new Rotor(rotors[2]);
 		}
 		else
 		{
 			out.print("Error!\nA Rotor can't be used twice");
 		}
 	}
-	//sets a specific rotor to a rotor position;
+	//sets a specific rotor to a rotor location
 	public void setRotors (int location, int rotor)
 	{
 		if(rotor != rotors[0].getRotorNumber() && rotor != rotors[1].getRotorNumber() && rotor != rotors[2].getRotorNumber())
@@ -61,6 +61,32 @@ public class Enigma {
 			out.print("Error!\nA Rotor can't be used twice");
 		}
 	}
+	//Sets a specific rotor to a rotor location along with setting it's position
+	public void setRotors (int location, int rotor, int position)
+	{
+		if(rotor != rotors[0].getRotorNumber() && rotor != rotors[1].getRotorNumber() && rotor != rotors[2].getRotorNumber())
+		{
+			rotors[location] = null;
+			rotors[location] = new Rotor(rotor);
+			rotors[location].setRotorPosition(position);
+		}
+		else
+		{
+			out.print("Error!\nA Rotor can't be used twice");
+		}
+	}
+	//Sets the postion for all rotors
+	public void setRotorPosition(int positionOne, int positionTwo, int positionThree)
+	{
+		rotors[0].rotorPosition = positionOne;
+		rotors[1].rotorPosition = positionTwo;
+		rotors[2].rotorPosition = positionThree;
+	}
+	//Sets the position ofr a specific rotor
+	public void setRotorPosition(int location, int position)
+	{
+		rotors[location].rotorPosition = position;
+	}
 	
 	public int getRotorNumber (int location)
 	{
@@ -70,4 +96,9 @@ public class Enigma {
 	{
 		return rotors[location].getRotorValues();
 	}
+	public int getRotorPosition (int location)
+	{
+		return rotors[location].getRotorPosition();
+	}
+	
 }
